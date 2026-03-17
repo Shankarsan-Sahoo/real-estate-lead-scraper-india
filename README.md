@@ -70,14 +70,6 @@ hyderabad_realestate_leads.xlsx
 
 ---
 
-## 📸 Demo
-
-*(Add screenshots here for better visibility)*
-
-* Excel output preview
-* Script running in terminal
-
----
 
 ## 🛠️ Setup
 
