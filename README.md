@@ -1,49 +1,97 @@
-# 🏢 Hyderabad Real Estate Lead Scraper
+# 🏢 Google Maps Real Estate Lead Scraper (Python | India)
 
-Automatically discovers real estate company leads in Hyderabad from Google Maps.
+🔥 Scrapes 100+ real estate leads (with phone & website) in minutes from Google Maps
 
----
-
-## 📋 Output Columns
-
-| Column | Description |
-|---|---|
-| **Company Name** | Real company name from Google Maps |
-| **Phone** | Contact number (blank if not listed on Maps) |
-| **Website** | Official company website |
-| **Source** | Google Maps |
-| **Phone Found** | Yes / No |
+Automatically discovers **real estate companies in Hyderabad** using Google Maps and enriches data from multiple sources.
 
 ---
 
-## 🔍 Source
+## 🚀 Features
 
-**Google Maps** via Selenium
+* ✅ Scrapes real estate companies from **Google Maps**
+* ✅ Extracts:
 
-- Searches multiple queries (`real estate builders Hyderabad`, `property developers Hyderabad`, etc.)
-- Collects all place URLs from search results
-- Navigates to each place page directly for a clean DOM
-- Extracts company name, phone, and website from each listing
+  * Company Name
+  * Phone Number
+  * Website
+* ✅ Multi-source enrichment:
+
+  * Google Maps
+  * Sulekha
+  * TradeIndia
+* ✅ Smart phone validation (India-specific)
+* ✅ Filters out spam/directory websites (JustDial, 99acres, etc.)
+* ✅ Removes duplicates across all sources
+* ✅ Excel output with color formatting
+* ✅ Handles dynamic pages (no stale element issues)
 
 ---
 
-## ✅ Rules
+## ⚙️ How It Works
 
-- Company Name + Website = **required** (record skipped if missing)
-- Phone = **saved if found**, blank if not listed on Maps
-- Blacklisted domains (JustDial, LinkedIn, Reddit, 99acres etc.) are filtered out
-- Duplicates removed across all queries
+1. Collects Google Maps place URLs using multiple search queries
+2. Navigates directly to each place page (avoids stale DOM issues)
+3. Extracts:
+
+   * Company name
+   * Website (filtered)
+   * Phone number (validated)
+4. Enriches additional leads from:
+
+   * Sulekha
+   * TradeIndia
+5. Deduplicates results across all sources
+6. Saves structured data into Excel
 
 ---
 
-## 🚀 Setup
+## 📋 Output Format
+
+| Column       | Description                        |
+| ------------ | ---------------------------------- |
+| Company Name | Business name from source          |
+| Phone        | Contact number (if available)      |
+| Website      | Official company website           |
+| Source       | Google Maps / Sulekha / TradeIndia |
+| Phone Found  | Yes / No                           |
+
+---
+
+## 📊 Output File
+
+```
+hyderabad_realestate_leads.xlsx
+```
+
+### Row Colors:
+
+* 🟢 **Green** → Has phone number
+* 🟡 **Yellow** → Website only
+
+---
+
+## 📸 Demo
+
+*(Add screenshots here for better visibility)*
+
+* Excel output preview
+* Script running in terminal
+
+---
+
+## 🛠️ Setup
 
 ### Requirements
-- Python 3.8+
-- Google Chrome
-- ChromeDriver matching your Chrome version → https://chromedriver.chromium.org/downloads
 
-### Install dependencies
+* Python 3.8+
+* Google Chrome
+* ChromeDriver (matching your Chrome version)
+
+👉 Download: https://chromedriver.chromium.org/downloads
+
+---
+
+### Install Dependencies
 
 ```bash
 pip install selenium requests beautifulsoup4 pandas openpyxl
@@ -54,40 +102,29 @@ pip install selenium requests beautifulsoup4 pandas openpyxl
 ## ▶️ Run
 
 ```bash
-python hyderabad_realestate_leads.py
+python hyderabad_realestate_scraper.py
 ```
 
-Chrome will open automatically and start scraping. To run without a browser window:
+To run in headless mode:
 
 ```python
-# In the script change:
 driver = build_driver(headless=True)
 ```
 
 ---
 
-## 📊 Expected Results
+## 📈 Expected Results
 
-- ~170 unique place URLs collected across 5 search queries
-- ~130 leads saved (companies that have a website listed on Maps)
-- ~110 with phone number, ~20 website only
-
----
-
-## 📁 Output
-
-File: `hyderabad_realestate_leads.xlsx`
-
-| Row Color | Meaning |
-|---|---|
-| 🟢 Green | Has phone number |
-| 🟡 Yellow | Website only — no phone listed on Maps |
+* ~170 unique Google Maps listings collected
+* ~130 valid leads (with website)
+* ~110 with phone number
+* ~20 website only
 
 ---
 
 ## ➕ Get More Leads
 
-Add more search queries in the script:
+Add more queries inside the script:
 
 ```python
 GMAPS_QUERIES = [
@@ -96,24 +133,68 @@ GMAPS_QUERIES = [
     "real estate companies Hyderabad",
     "residential builders Hyderabad",
     "construction companies Hyderabad",
-    # Add more below
-    "gated community builders Hyderabad",
     "villa developers Hyderabad",
     "plot developers Hyderabad",
 ]
 ```
 
-Each new query adds ~50-60 more unique companies.
+Each query adds ~50–60 more companies.
 
 ---
 
 ## ⚠️ Notes
 
-- Do **not** push the `.xlsx` output file to GitHub
-- For personal/research use only
-- Business phone numbers scraped are publicly listed on Google Maps
+* Do NOT upload generated `.xlsx` file to GitHub
+* For **personal / research use only**
+* Data is scraped from publicly available sources
 
 ---
 
-## Keywords
-google maps scraper python, real estate leads scraper, selenium google maps scraper, india lead generation tool, business leads scraper
+## 💡 Use Cases
+
+* Real estate lead generation
+* Sales prospecting
+* Market research
+* Local business intelligence
+
+---
+
+## 🧠 Problem Solved
+
+Manually collecting real estate leads from Google Maps is slow and inefficient.
+
+This tool automates:
+
+* Data discovery
+* Contact extraction
+* Lead structuring
+
+👉 Saving hours of manual work.
+
+---
+
+## 🏷️ Keywords
+
+google maps scraper python, real estate leads scraper, selenium scraper india, business leads extraction, google maps automation, lead generation python
+
+---
+
+## ⭐ Support
+
+If this project helps you:
+
+👉 ⭐ Star this repository
+👉 Share it with others
+
+---
+
+## 👨‍💻 Author
+
+**Shankarsan Sahoo**
+Full Stack Python Developer
+
+---
+
+## 📜 License
+
+This project is for educational and research purposes.
