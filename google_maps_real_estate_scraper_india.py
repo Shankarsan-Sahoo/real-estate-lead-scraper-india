@@ -1,8 +1,22 @@
 """
-Hyderabad Real Estate Lead Scraper — Dynamic Edition
-Sources  : Google Maps (Selenium) + Sulekha + TradeIndia
-Strategy : Navigate to each Google Maps place URL directly (no click = no stale DOM)
-Output   : Company Name | Phone | Website | Source
+Google Maps Real Estate Lead Scraper (India)
+
+Author  : Shankarsan Sahoo
+Tech    : Python, Selenium, BeautifulSoup
+Sources : Google Maps, Sulekha, TradeIndia
+
+Features:
+- Dynamic Google Maps scraping (no stale elements)
+- Multi-source aggregation
+- Phone extraction + validation
+- Website filtering (removes directories like JustDial, 99acres)
+- Excel export with formatting
+
+Usage:
+    python google_maps_real_estate_scraper_india.py
+
+Output:
+    hyderabad_realestate_leads.xlsx
 """
 
 import time, re, logging, sys, warnings
