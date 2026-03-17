@@ -115,12 +115,3 @@ Each new query adds ~50-60 more unique companies.
 
 ---
 
-## 📦 .gitignore
-
-```
-*.xlsx
-*.csv
-venv/
-__pycache__/
-*.pyc
-```
